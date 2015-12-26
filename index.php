@@ -1,22 +1,39 @@
 <?php
 
-//definir qual vai ser a pagina principal da aplicação 'controlador/metodo'
-$_GET['key'] = (isset($_GET['key']) ? $_GET['key'] . '/': 'Exemplo/index');
-$key = $_GET['key'];
-$separa = explode('/', $key);
-$controlador = $separa[0];
-$metodo = ($separa[1] == null ? 'index' : $separa[1]);
+
+	/*
+	|--------------------------------------------------------------------------
+	| Configuração
+	|--------------------------------------------------------------------------
+	|
+	| Aquivo de configuração da aplicação. Responsável por definir Tipo do
+	| cabeçalho dos arquivos, Localização das pastas,e página principal da aplicação
+	| dele no script para não nos preocupar com o carregamento de quaisquer
+	| classes "manualmente". Sente-se e relaxar.
+	|
+	*/
+
+	$array = require __DIR__.'/config/config.php';
 
 
-//Função autoload
-function __autoload( $classe )
-{
-	require_once('app/models/' . $classe . '.php');
-}
+	/*
+	|--------------------------------------------------------------------------
+	| Registro da Auto carregadora
+	|--------------------------------------------------------------------------
+	|
+	| O PHP fornece um conveniente gerador automatico de classe para
+	| nossa aplicação. Nós apenas precisamos utilizá-lo! Nós vamos precisar
+	| dele no script para não nos preocupar com o carregamento de quaisquer
+	| classes "manualmente". Sente-se e relaxar.
+	|
+	*/
 
-require_once('system/core/Controller.php');
-require_once('system/core/Model.php');
-require_once('app/controllers/' . $controlador . 'Controller.php');
+	require __DIR__.'/config/autoload.php';
 
-$app = new $controlador();
-$app->$metodo();
+
+	require_once('system/core/Controller.php');
+	require_once('system/core/Model.php');
+	require_once('app/controllers/' . $array[0] . 'Controller.php');
+
+	$app = new $array[0]();
+	$app->$array[1]();
