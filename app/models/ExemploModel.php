@@ -9,7 +9,7 @@
  *
  * @package		VeryPHP
  * @subpackage	app
- * @category	controllers
+ * @category	models
  * @author		Robert San
  */
 

@@ -51,10 +51,13 @@
 	|
 	*/
 
-	function  pagina_principal($pagina){
+	function  pagina_principal($pagina)
+	{
 		$_GET['key'] = (isset($_GET['key']) ? $_GET['key'] . '/': $pagina);
+
 		$key = $_GET['key'];
 		$separa = explode('/', $key);
+
 		$controlador = $separa[0];
 		$metodo = ($separa[1] == null ? 'index' : $separa[1]);
 

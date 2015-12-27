@@ -1,5 +1,12 @@
 <?php
 
+	/**
+	 * VeryPHP - Um Framework Pessoal para Crianças.
+	 *
+	 * @package  VeryPHP
+	 * @author   Robert San  <robetsanseries@gmail.com>
+	 */
+
 
 	/*
 	|--------------------------------------------------------------------------
@@ -7,9 +14,8 @@
 	|--------------------------------------------------------------------------
 	|
 	| Aquivo de configuração da aplicação. Responsável por definir Tipo do
-	| cabeçalho dos arquivos, Localização das pastas,e página principal da aplicação
-	| dele no script para não nos preocupar com o carregamento de quaisquer
-	| classes "manualmente". Sente-se e relaxar.
+	| cabeçalho dos arquivos, Localização das pastas,e página principal da
+	| aplicação.
 	|
 	*/
 
@@ -31,9 +37,32 @@
 	require __DIR__.'/config/autoload.php';
 
 
+	/*
+	|--------------------------------------------------------------------------
+	| Inclusão das classes padrões
+	|--------------------------------------------------------------------------
+	|
+	| Incluir as páginas padrões do framework. Caso dê algum erro, o script
+	| retorna um erro fatal e aborta a execução do script.
+	|
+	*/
+
 	require_once('system/core/Controller.php');
+
 	require_once('system/core/Model.php');
+
 	require_once('app/controllers/' . $array[0] . 'Controller.php');
+
+
+	/*
+	| ------------------------------------------------- -------------------------
+	| Execute o aplicativo
+	| ------------------------------------------------- -------------------------
+	|
+	| Responsavel por instânciar os objetos que chama o controller e método
+	| especificado pela url enviando a resposta de volta para browser do cliente.
+	|
+	*/
 
 	$app = new $array[0]();
 	$app->$array[1]();
