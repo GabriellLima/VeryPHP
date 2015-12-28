@@ -35,6 +35,7 @@ class Model
 	 * @access private
 	 */
 	private static $db;
+	public $tabela;
 
 
 	/*
@@ -82,7 +83,7 @@ class Model
      * @param String $tabela
      * @param Array $dados
      */
-	public function insert( $tabela, Array $dados )
+	public function create( Array $dados )
 	{
 		//Separar os campos e valores em arrays distintos.
 		foreach ($dados as $key => $value) {
@@ -94,7 +95,7 @@ class Model
 		$campos = implode(', ', $campos);
 		$valores = "'" . implode("' , '", $valores) . "'";
 
-		$sql = "INSERT INTO `$tabela` ( $campos ) VALUES ( $valores )";
+		$sql = "INSERT INTO `$this->tabela` ( $campos ) VALUES ( $valores )";
 		self::query($sql);
 	}
 
@@ -103,9 +104,9 @@ class Model
      * @param String $tabela
      * @return Array
      */
-	public function all( $tabela )
+	public function all()
 	{
-		$sql = "SELECT * FROM `$tabela`";
+		$sql = "SELECT * FROM `$this->tabela`";
 		$resultado = self::query($sql);
 
 		return $resultado->fetchAll();
@@ -117,9 +118,9 @@ class Model
      * @param Array $where
      * @return Array
      */
-	public function find( $tabela, $where )
+	public function find( $where )
 	{
-		$sql = "SELECT * FROM `$tabela` WHERE $where";
+		$sql = "SELECT * FROM `$this->tabela` WHERE $where";
 		$resultado = self::query($sql);
 
 		return $resultado->fetchAll();
@@ -132,7 +133,7 @@ class Model
      * @param Array $dados
      * @param Array $where
      */
-	public function update( $tabela, Array $dados, $where )
+	public function update( Array $dados, $where )
 	{
 		//Criar array com os campos e os novos valores a serem implementados no sql.
 		foreach ($dados as $key => $value) {
@@ -142,20 +143,20 @@ class Model
 		//formatar dados para construção do sql.
 		$campos = implode(", ", $campos);
 
-		$sql = "UPDATE `$table` SET $campos WHERE $where";
+		$sql = "UPDATE `$this->tabela` SET $campos WHERE $where";
 		self::query($sql);
 	}
 
 
 	/**
-     * Método responsável pela exclusão de dados espeíficos em uma tabela.
+     * Método responsável pela exclusão de dados específicos em uma tabela.
      * @param String $tabela
      * @param Array $dados
      * @param Array $where
      */
-	public function delete( $tabela, $where )
+	public function delete( $where )
 	{
-		$sql = "DELETE FROM `$tabela` WHERE $where";
+		$sql = "DELETE FROM `$this->tabela` WHERE $where";
        	self::query($sql);
     }
 

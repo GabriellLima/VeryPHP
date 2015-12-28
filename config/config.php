@@ -17,7 +17,7 @@
 	| Página Principal
 	|--------------------------------------------------------------------------
 	|
-	| Definição da página principal da aplicação 'Controlador/Metodo'
+	| Definição da página principal da aplicação 'Contrololador/Metodo'.
 	|
 	*/
 
@@ -29,7 +29,8 @@
 	| Configurações
 	|--------------------------------------------------------------------------
 	|
-	| Definição da localizações das pastar principais a serem usadas na aplicação.
+	| Definição da localizações das pastas principais a serem usadas na
+	| aplicação.
 	|
 	*/
 
@@ -44,10 +45,12 @@
 	| Função página principal
 	|--------------------------------------------------------------------------
 	|
-	| Função que define e formata a página principal.Responsável por separar
+	| Função que define e formata a página principal. Responsável por separar
 	| controller e método em variáveis diferentes.
-	| Obs: Se o usuário não digitar o método, automaticamente ele execultará
-	| o método 'index', caso esse não exista, ocorrerá um erro.
+	|
+	| Obs: Se o usuário não digitar o método, automaticamente ele executará
+	| o método 'index' do controlador específicado, caso esse ou o método não
+	| exista, ocorrerá um erro.
 	|
 	*/
 
@@ -68,4 +71,4 @@
 	}
 
 
-	return pagina_principal($pagina);
+	#return pagina_principal($pagina);

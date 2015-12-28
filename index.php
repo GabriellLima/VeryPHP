@@ -4,7 +4,7 @@
 	 * VeryPHP - Um Framework Pessoal para Crianças.
 	 *
 	 * @package  VeryPHP
-	 * @author   Robert San  <robetsanseries@gmail.com>
+	 * @author   Robert San  <robertsanseries@gmail.com>
 	 */
 
 
@@ -19,7 +19,7 @@
 	|
 	*/
 
-	$array = require __DIR__.'/config/config.php';
+	require __DIR__.'/config/config.php';
 
 
 	/*
@@ -47,11 +47,13 @@
 	|
 	*/
 
+	require_once('system/core/VeryPHP.php');
+
 	require_once('system/core/Controller.php');
 
 	require_once('system/core/Model.php');
 
-	require_once('app/controllers/' . $array[0] . 'Controller.php');
+	#require_once('app/controllers/' . $array[0] . 'Controller.php');
 
 
 	/*
@@ -59,10 +61,10 @@
 	| Execute o aplicativo
 	| ------------------------------------------------- -------------------------
 	|
-	| Responsavel por instânciar os objetos que chama o controller e método
+	| Responsável por instânciar os objetos que chama o controller e método
 	| especificado pela url enviando a resposta de volta para browser do cliente.
 	|
 	*/
 
-	$app = new $array[0]();
-	$app->$array[1]();
+	$app = new VeryPHP();
+	#$app->$array[1]();

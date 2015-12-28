@@ -15,6 +15,7 @@
 
 class ExemploModel extends Model
 {
+	public $tabela = 'nomeDaTabela';
 
 	public function __construct(){}
 

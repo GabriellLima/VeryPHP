@@ -7,11 +7,11 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <style type="text/css">
         	*{
-        		margin: 0;
-        		padding: 0;
+        		margin: 0%;
+        		padding: 0%;
         	}
 
-            html, body {
+            html, body{
                 height: 100%;
             }
 

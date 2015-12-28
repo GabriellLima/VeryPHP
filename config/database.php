@@ -20,7 +20,7 @@ return [
      | ------------------------------------------------- -------------------------
      |
      | Aqui está cada um a configuração conexões banco de dados para sua aplicação.
-     |
+     |
      | Todo o trabalho de banco de dados é feito através de PDO por isso verifique
 	 | se você tem os driver para o banco de dados específico da sua escolha
 	 | instalado em sua máquina antes de iniciar o desenvolvimento.
